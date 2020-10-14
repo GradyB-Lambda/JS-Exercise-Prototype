@@ -39,6 +39,19 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Person {
   constructor(name, age) {
       this.name = name;
@@ -74,30 +87,20 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {
-  constructor(model, milesPerGallon) {
-      this.tank = 0;
-      this.odometer = 0;
-      this.model = model;
-      this.milesPerGallon = milesPerGallon;
-  }
-  fill(gallons) {
-      this.tank += gallons;
-  }
-  drive(distance) {
-      this.odometer += distance;
-      let fuel = this.tank * this.milesPerGallon;
-      fuel -= distance;
-      this.tank = fuel / this.milesPerGallon;
-
-      if (this.tank <= 0) {
-          this.odometer -= 1;
-          this.tank = 0;
-          return `I ran out of fuel at ${this.odometer} miles`;
-      }
-  }
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
-
+Car.prototype.fill = function (someGallons) {
+  if (this.tank.length === 0) {
+    this.tank.push(someGallons);
+  }
+};
+Car.prototype.toString = function () {
+  return `I ran out of fuel at ${this.odometer}`;
+};
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
